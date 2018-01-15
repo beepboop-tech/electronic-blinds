@@ -1,10 +1,13 @@
 from nanpy import ArduinoApi
+from nanpy import SerialManager
 from time import sleep
 import constants
 import RPi.GPIO as GPIO
 
+connection = SerialManager(device='/dev/ttyACM0')
+
 # slave setup
-a = ArduinoApi()
+a = ArduinoApi(connection=connection)
 a.pinMode(constants.M1dirpin, a.OUTPUT)  # M1 direction pin
 a.pinMode(constants.M1steppin, a.OUTPUT)  # M1 stepping pin
 a.pinMode(constants.M2dirpin, a.OUTPUT)  # M2 direction pin
@@ -25,7 +28,10 @@ def turn_stepper_off():
     sleep(constants.delayRelay)
 
 
-def blinds_up(a):
+def blinds_up():
+
+    global a
+    
     turn_stepper_on()
     a.digitalWrite(constants.M1dirpin, a.HIGH)
     a.digitalWrite(constants.M2dirpin, a.HIGH)
@@ -39,7 +45,10 @@ def blinds_up(a):
     turn_stepper_off()
 
 
-def blinds_down(a):
+def blinds_down():
+
+    global a
+    
     turn_stepper_on()
     a.digitalWrite(constants.M1dirpin, a.LOW)
     a.digitalWrite(constants.M2dirpin, a.LOW)
@@ -52,4 +61,4 @@ def blinds_down(a):
         sleep(2 * constants.delayStep)
     turn_stepper_off()
 
-turn_stepper_on()
+#blinds_up(a)

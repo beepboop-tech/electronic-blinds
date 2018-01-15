@@ -8,4 +8,4 @@ relaypin = 14  # set pi GPIO pin for relay
 delayStep = 1 / 1000000  # delay in stepper rotation in microseconds
 delayRelay = 0.5  # delay when turning on stepper board
 
-rotations = 2001  # number of steps to fully open/close blinds
+rotations = 200  # number of steps to fully open/close blinds
