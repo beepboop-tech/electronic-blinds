@@ -1,6 +1,7 @@
+from nanpy import ArduinoApi
 from time import sleep
 import constants
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 # slave setup
 a = ArduinoApi()
@@ -50,3 +51,5 @@ def blinds_down(a):
         a.digitalWrite(constants.M2steppin, a.LOW)
         sleep(2 * constants.delayStep)
     turn_stepper_off()
+
+turn_stepper_on()
