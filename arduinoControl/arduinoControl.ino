@@ -18,24 +18,44 @@ void setup() {
 }
 
 void loop() {    
-  if(digitalRead(upPin) == 1){
-          toggleReceivePin();
+  if(digitalRead(upPin) == 1){          
           delayMicroseconds(2);
           digitalWrite(M1dirpin,HIGH);
           digitalWrite(M2dirpin,HIGH);
-          runMotor();
-                  
-  }else if(digitalRead(downPin) == 1){
+//          runMotor();
+          for(int j = 0; j <= 2000; j++) {
+              digitalWrite(M1steppin,LOW);
+              digitalWrite(M2steppin,LOW);
+              delayMicroseconds(2);
+              digitalWrite(M1steppin,HIGH);
+              digitalWrite(M2steppin,HIGH);
+              delay(2);  
+            }
+             
           toggleReceivePin();
-          delayMicroseconds(2);
+          delay(100); 
+                  
+  }else if(digitalRead(downPin) == 1){           
+          delayMicroseconds(2);          
           digitalWrite(M1dirpin,LOW);
           digitalWrite(M2dirpin,LOW);
-          runMotor();                 
-}        
+//          runMotor();
+          for(int j = 0; j <= 2000; j++) {
+            digitalWrite(M1steppin,LOW);
+            digitalWrite(M2steppin,LOW);
+            delayMicroseconds(2);
+            digitalWrite(M1steppin,HIGH);
+            digitalWrite(M2steppin,HIGH);
+            delay(2);  
+          }        
+          toggleReceivePin();
+          delay(100);          
+  }
+}
 
 bool toggleReceivePin(){
-  digitalWrite(receivedPin, !receivedState)
-  receivedState = !receivedState  
+  digitalWrite(receivedPin, !receivedState);
+  receivedState = !receivedState;  
 }
 
 void runMotor(){  

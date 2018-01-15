@@ -9,7 +9,7 @@ GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(constants.relaypin,     GPIO.OUT)
 GPIO.setup(constants.up_pin,       GPIO.OUT)
-GPIO.setup(constants.up_pin,       GPIO.OUT)
+GPIO.setup(constants.down_pin,       GPIO.OUT)
 GPIO.setup(constants.recieved_pin, GPIO.IN)
 
 # The last recieved_pin value
@@ -17,6 +17,7 @@ GPIO.setup(constants.recieved_pin, GPIO.IN)
 current_recieved_pin_value = GPIO.LOW
 
 def set_pin_and_wait(pin_number):
+    global current_recieved_pin_value
     GPIO.output(pin_number, GPIO.HIGH)
 
     while(GPIO.input(constants.recieved_pin) is current_recieved_pin_value):
@@ -43,3 +44,5 @@ def blinds_down():
     turn_stepper_on()
     set_pin_and_wait(constants.down_pin)
     turn_stepper_off()
+    
+#turn_stepper_off()
