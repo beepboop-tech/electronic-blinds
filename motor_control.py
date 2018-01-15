@@ -3,7 +3,7 @@ import constants
 import RPI.GPIO as GPIO
 
 # slave setup
-a = ArduinoApi(connection=connection)
+a = ArduinoApi()
 a.pinMode(constants.M1dirpin, a.OUTPUT)  # M1 direction pin
 a.pinMode(constants.M1steppin, a.OUTPUT)  # M1 stepping pin
 a.pinMode(constants.M2dirpin, a.OUTPUT)  # M2 direction pin
