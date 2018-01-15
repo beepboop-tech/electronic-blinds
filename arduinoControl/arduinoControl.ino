@@ -23,6 +23,7 @@ void loop() {
           digitalWrite(M1dirpin,HIGH);
           digitalWrite(M2dirpin,HIGH);
 //          runMotor();
+
           for(int j = 0; j <= 2000; j++) {
               digitalWrite(M1steppin,LOW);
               digitalWrite(M2steppin,LOW);
@@ -40,6 +41,7 @@ void loop() {
           digitalWrite(M1dirpin,LOW);
           digitalWrite(M2dirpin,LOW);
 //          runMotor();
+
           for(int j = 0; j <= 2000; j++) {
             digitalWrite(M1steppin,LOW);
             digitalWrite(M2steppin,LOW);

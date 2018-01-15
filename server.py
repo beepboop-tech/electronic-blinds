@@ -39,4 +39,4 @@ api.add_resource(BlindsDown, '/blinds/down', endpoint='down')
 api.add_resource(Blinds, '/blinds', endpoint='blinds')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host = '0.0.0.0')
