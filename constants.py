@@ -1,11 +1,9 @@
-M1dirpin = 4  # set motor 1 direction pin
-M1steppin = 5  # set motor 1 step pin
-M2dirpin = 7  # set motor 2 direction pin
-M2steppin = 6  # set motor 2 step pin
+relaypin    = 14  # set pi GPIO pin for relay
 
-relaypin = 14  # set pi GPIO pin for relay
+relay_delay = 0.5  # delay when turning on stepper board
 
-delayStep = 1 / 1000000  # delay in stepper rotation in microseconds
-delayRelay = 0.5  # delay when turning on stepper board
 
-rotations = 200  # number of steps to fully open/close blinds
+
+up_pin       = 20
+down_pin     = 21
+recieved_pin = 16
